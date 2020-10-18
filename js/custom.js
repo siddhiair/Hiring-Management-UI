@@ -15,7 +15,8 @@ jQuery(document).ready(function($) {
 
     $('.switchbtn input[type="checkbox"]').click(function(){
         var inputValue = $(this).val();
-        $("." + inputValue).slideToggle();
+        //$("." + inputValue).slideToggle();
+        $("[data-app-class = "+inputValue+"]").slideToggle();
     });
     $(".header-icon").hover(function(){
         $(this).children("i").addClass("in");
@@ -25,7 +26,7 @@ jQuery(document).ready(function($) {
     });
 
     $(".setting-more").click(function(){
-        $(this).next(".setting-menu").slideToggle();
+        $(this).next(".setting-menu").fadeToggle(100);
         $(".card-prop-menu").hide();
     });
     $(".card-prop-more").click(function(){

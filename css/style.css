@@ -20,8 +20,13 @@ a, button {
 }
 
 .display-wrapper {
-  min-height: 85vh;
+  min-height: calc(100vh - 130px);
   display: none;
+}
+.display-wrapper .task-wrapper {
+  height: calc(100vh - 130px);
+  overflow-y: auto;
+  max-width: 300px;
 }
 
 .header-icon i {
