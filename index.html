@@ -89,49 +89,56 @@
                     </a>
                 </div>
                 <div class="flex items-center justify-between md:justify-end">
-                    <a href="#" class="header-icon p-3">
-                        <i class="text-gray-500 hover:text-gray-700 lni lni-search-alt"></i>
-                    </a>
-                    <a href="#" class="header-icon p-3">
-                        <i class="text-gray-500 hover:text-gray-700 lni lni-funnel"></i>
-                    </a>
-                    <a href="#" class="header-icon p-3 relative">
-                        <i class="text-gray-500 hover:text-gray-700 lni lni-cog"></i>
-                        <div class="shadow bg-white rounded-lg absolute left-0 top-100 w-48 bg-white z-10 pb-3 pt-1">
-                            <div class="pointer px-3 pb-2 pt-1 flex justify-between items-center border-solid border-b border-gray-300 mb-2">
+                    <div class="header-icon">
+                        <i class="text-gray-500 hover:text-gray-700 p-3 cursor-pointer lni lni-search-alt"></i>
+                    </div>
+                    <div class="header-icon">
+                        <i class="text-gray-500 hover:text-gray-700 p-3 cursor-pointer lni lni-funnel setting-icon"></i>
+                    </div>
+                    <div class="header-icon relative">
+                        <i class="text-gray-500 hover:text-gray-700 p-3 cursor-pointer lni lni-cog setting-more"></i>
+                        <div class="shadow bg-white rounded-lg absolute left-0 top-100 w-48 bg-white z-10 pb-3 pt-1 setting-menu">
+                            <div class="pointer px-3 pb-2 pt-1 flex justify-between items-center border-solid border-b border-gray-300 mb-2 cursor-pointer card-prop-more">
                                 <span>Card Properties</span>
                                 <i class="lni lni-chevron-right text-gray-700"></i>
                             </div>
                             <div class="px-3 py-1">
                                 <label class="switchbtn">
-                                    <input type="checkbox">
+                                    <input type="checkbox" checked value="app-new">
                                     <span class="switch-slider round"></span>
                                 </label>
                                 <span class="leading-5 text-gray-700 ml-2">New</span>
                             </div>
                             <div class="px-3 py-1">
                                 <label class="switchbtn">
-                                    <input type="checkbox">
+                                    <input type="checkbox" checked value="app-machine-test">
                                     <span class="switch-slider round"></span>
                                 </label>
-                                <span class="leading-5 text-gray-700 ml-2">In Process</span>
+                                <span class="leading-5 text-gray-700 ml-2">Machine Test</span>
                             </div>
                             <div class="px-3 py-1">
                                 <label class="switchbtn">
-                                    <input type="checkbox">
+                                    <input type="checkbox" checked value="app-hr-round">
+                                    <span class="switch-slider round"></span>
+                                </label>
+                                <span class="leading-5 text-gray-700 ml-2">HR Round</span>
+                            </div>
+                            <div class="px-3 py-1">
+                                <label class="switchbtn">
+                                    <input type="checkbox" checked value="app-selected">
                                     <span class="switch-slider round"></span>
                                 </label>
                                 <span class="leading-5 text-gray-700 ml-2">Selected</span>
                             </div>
                             <div class="px-3 py-1">
                                 <label class="switchbtn">
-                                    <input type="checkbox">
+                                    <input type="checkbox" checked value="app-rejected">
                                     <span class="switch-slider round"></span>
                                 </label>
                                 <span class="leading-5 text-gray-700 ml-2">Rejected</span>
                             </div>
-                            <div class="shadow bg-white rounded-lg absolute left-0 top-0 w-48 bg-white z-20 pb-3 pt-1">
-                                <div class="pointer px-3 pb-2 pt-1 flex items-center border-solid border-b border-gray-300 mb-2">
+                            <div class="shadow bg-white rounded-lg absolute top-0 right-0 left-0 w-48 bg-white z-20 pb-3 pt-1 card-prop-menu">
+                                <div class="cursor-pointer px-3 pb-2 pt-1 flex items-center border-solid border-b border-gray-300 mb-2 card-prop-back">
                                     <i class="lni lni-chevron-left mr-3 text-gray-700"></i>
                                     <span>Back</span>                                    
                                 </div>
@@ -172,7 +179,7 @@
                                 </div>
                             </div>
                         </div>
-                    </a>
+                    </div>
                     <button class="bg-blue-500 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded ml-4">
                         <i class="lni lni-plus"></i> Add Application
                       </button>
@@ -482,7 +489,7 @@
 
         <div class="mx-auto py-6 px-4 sm:px-6 lg:px-8 bg-gray-100 display-wrapper" id="board-display">
             <div class="flex">
-                <div class="flex-1 mx-3 sortable">
+                <div class="flex-1 mx-3 sortable app-new">
                     <h1 class="py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"><span class="h-3 w-3 rounded-full bg-gray-500 inline-block mr-1"></span> New</h1>
                     <div class="shadow border-b border-gray-200 rounded-lg bg-white p-3 app-card draggable">
                         <div class="flex items-center mb-1">
@@ -526,7 +533,7 @@
                     </div><!-----card ends-->
                 </div>
                 <!----New applications wrapper ends--->
-                <div class="flex-1 mx-3 sortable">
+                <div class="flex-1 mx-3 sortable app-machine-test">
                     <h1 class="py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"><span class="h-3 w-3 rounded-full bg-blue-500 inline-block mr-1"></span> Machine Test</h1>
                     <div class="shadow border-b border-gray-200 rounded-lg bg-white p-3 app-card draggable">
                         <div class="flex items-center mb-1">
@@ -570,7 +577,7 @@
                     </div><!-----card ends-->
                 </div>
                 <!----Machine test applications wrapper ends--->
-                <div class="flex-1 mx-3 sortable">
+                <div class="flex-1 mx-3 sortable app-hr-round">
                     <h1 class="py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"><span class="h-3 w-3 rounded-full bg-orange-500 inline-block mr-1"></span> HR Round</h1>
                     <div class="shadow border-b border-gray-200 rounded-lg bg-white p-3 app-card draggable">
                         <div class="flex items-center mb-1">
@@ -614,7 +621,7 @@
                     </div><!-----card ends-->
                 </div>
                 <!----HR Round applications wrapper ends--->
-                <div class="flex-1 mx-3 sortable">
+                <div class="flex-1 mx-3 sortable app-selected">
                     <h1 class="py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"><span class="h-3 w-3 rounded-full bg-green-500 inline-block mr-1"></span> Selected</h1>
                     <div class="shadow border-b border-gray-200 rounded-lg bg-white p-3 app-card draggable">
                         <div class="flex items-center mb-1">
@@ -658,7 +665,7 @@
                     </div><!-----card ends-->
                 </div>
                 <!----Selected applications wrapper ends--->
-                <div class="flex-1 mx-3 sortable">
+                <div class="flex-1 mx-3 sortable app-rejected">
                     <h1 class="py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"><span class="h-3 w-3 rounded-full bg-red-500 inline-block mr-1"></span> Rejected</h1>
                     <div class="shadow border-b border-gray-200 rounded-lg bg-white p-3 app-card draggable">
                         <div class="flex items-center mb-1">

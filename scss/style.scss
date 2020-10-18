@@ -2,6 +2,9 @@
 @import 'https://cdn.lineicons.com/2.0/LineIcons.min.css';
 @import 'variables';
 
+a, button{
+    @include transit(.3s);
+}
 .user-dropdown{
     display:none;
 }
@@ -12,12 +15,18 @@
     min-height: 85vh;
     display: none;
 }
-.display-tab{
-    svg{
-        width: 20px;
-        height: 20px;
+.header-icon{
+    i{
+        @include transit(.3s);
+        &.in{
+            background: #eee;
+            border-radius: 50%;
+        }
     }
 }
+.header-icon-menu,.setting-menu,.card-prop-menu{
+    display: none;
+}    
 .app-card{
     cursor: pointer;
     margin-bottom: 0.75rem;

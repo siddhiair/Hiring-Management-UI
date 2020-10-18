@@ -14,8 +14,25 @@ jQuery(document).ready(function($) {
     });
 
     $('.switchbtn input[type="checkbox"]').click(function(){
-        var inputValue = $(this).attr("value");
+        var inputValue = $(this).val();
         $("." + inputValue).slideToggle();
+    });
+    $(".header-icon").hover(function(){
+        $(this).children("i").addClass("in");
+    },
+    function(){
+        $(this).children("i").removeClass("in");
+    });
+
+    $(".setting-more").click(function(){
+        $(this).next(".setting-menu").slideToggle();
+        $(".card-prop-menu").hide();
+    });
+    $(".card-prop-more").click(function(){
+        $(this).siblings(".card-prop-menu").show();
+    });
+    $(".card-prop-back").click(function(){
+        $(this).parent(".card-prop-menu").hide();
     });
     
 });

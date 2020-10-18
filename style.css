@@ -1,12 +1,5 @@
 @import 'https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css';
 @import 'https://cdn.lineicons.com/2.0/LineIcons.min.css';
-a, button {
-  -webkit-transition: all 0.3s ease-in;
-  -moz-transition: all 0.3s ease-in;
-  -o-transition: all 0.3s ease-in;
-  transition: all 0.3s ease-in;
-}
-
 .user-dropdown {
   display: none;
 }
@@ -24,18 +17,7 @@ a, button {
   display: none;
 }
 
-.header-icon i {
-  -webkit-transition: all 0.3s ease-in;
-  -moz-transition: all 0.3s ease-in;
-  -o-transition: all 0.3s ease-in;
-  transition: all 0.3s ease-in;
-}
-.header-icon i.in {
-  background: #eee;
-  border-radius: 50%;
-}
-
-.header-icon-menu, .setting-menu, .card-prop-menu {
+.setting-menu {
   display: none;
 }
 
