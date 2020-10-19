@@ -9,12 +9,12 @@ jQuery(document).ready(function($) {
           dragaccept:'.draggable-col'
         });
 
-    $(".display-tab>a").click(function(){
-        $(".display-tab>a").removeClass("active");
-        $(this).addClass("active");
-        var display = $(this).data("target");
+    $(".display-tab-toggle").click(function(){
         $(".display-wrapper").hide();
-        $("#"+display).fadeIn(); 
+        if($(this).is(':checked'))
+            $("#board-display").fadeIn();
+        else
+        $("#table-display").fadeIn();
     });
 
     $('.switchbtn input[type="checkbox"]').click(function(){
