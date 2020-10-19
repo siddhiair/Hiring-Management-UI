@@ -42,12 +42,12 @@ $tertiaryColor: #fad104;
   -ms-transform:rotate($deg);
   -o-transform:rotate($deg);
 }
-@mixin scale($deg){
-  transform:scale($deg);
-  -webkit-transform:scale($deg);
-  -moz-transform:scale($deg);
-  -ms-transform:scale($deg);
-  -o-transform:scale($deg);
+@mixin scale($val){
+  transform:scale($val);
+  -webkit-transform:scale($val);
+  -moz-transform:scale($val);
+  -ms-transform:scale($val);
+  -o-transform:scale($val);
 }
 @mixin masonry($col){
   column-count: $col;
