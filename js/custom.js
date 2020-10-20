@@ -1,13 +1,53 @@
 jQuery(document).ready(function($) {
+    $(".menu-icon").click(function(){
+        $(".nav-links").fadeToggle();
+        $(this).toggleClass("in");
+    });
+    $(".user-link").click(function(){
+        $(".user-dropdown").fadeToggle();
+    });
     $( ".sortable" ).sortable({
         connectWith: ".task-wrapper",
         stack: '.task-wrapper',
         placeholder: 'sortable-placeholder'
-      }).disableSelection();
+    }).disableSelection();
 
-      $(".sort-table").dragtable({
-          dragaccept:'.draggable-col'
-        });
+    $(".sort-table").dragtable({
+        dragaccept: '.draggable-col',
+        dragHandle: '.drag-handle'          
+    });
+
+    $('.sort-table').on('click', '.sortbale-col', function () {
+      var index = $(this).index(),
+          rows = [],
+          thClass = $(this).hasClass('asc') ? 'desc' : 'asc';
+
+      $('.sort-table th').removeClass('asc desc');
+      $(this).addClass(thClass);
+
+      $('.sort-table tbody tr').each(function (index, row) {
+        rows.push($(row).detach());
+      });
+
+      rows.sort(function (a, b) {
+        var aValue = $(a).find('td').eq(index).find(".sort-value").text(),
+            bValue = $(b).find('td').eq(index).find(".sort-value").text();
+
+        return aValue > bValue
+             ? 1
+             : aValue < bValue
+             ? -1
+             : 0;
+      });
+
+      if ($(this).hasClass('desc')) {
+        rows.reverse();
+      }
+
+      $.each(rows, function (index, row) {
+        $('.sort-table tbody').append(row);
+      });
+    });
 
     $(".display-tab button").click(function(e){
         $(".display-tab button").not(this).removeClass("focused");
@@ -66,7 +106,7 @@ jQuery(document).ready(function($) {
     });
     $('.modal-toggle').on('click', function(e) {
         e.preventDefault();
-        $('.modal').toggleClass('is-visible');
+        $('.modal').fadeToggle().toggleClass('is-visible');
     });
 
     var dtToday = new Date();

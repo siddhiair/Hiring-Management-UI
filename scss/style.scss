@@ -3,7 +3,7 @@
 @import 'https://cdn.lineicons.com/2.0/LineIcons.min.css';
 @import 'variables';
 
-/***drag table css starts***/
+/***drag table and drag card css starts***/
 .dragtable-sortable { 
     list-style-type: none; margin: 0; padding: 0; -moz-user-select: none;
 }
@@ -43,7 +43,23 @@
     visibility: hidden; 
     filter: alpha(opacity=0);
 }
-/***drag table css end***/
+.draggable-col{
+    position: relative;
+    .drag-handle{
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyIiBoZWlnaHQ9IjEzIj48cmVjdCBzdHlsZT0iZmlsbDojMzMzO2ZpbGwtb3BhY2l0eTouODsiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIHg9IjEiIHk9IjIiLz4JPHJlY3Qgc3R5bGU9ImZpbGw6IzMzMztmaWxsLW9wYWNpdHk6Ljg7IiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4PSIxIiB5PSI0Ii8+CTxyZWN0IHN0eWxlPSJmaWxsOiMzMzM7ZmlsbC1vcGFjaXR5Oi44OyIgd2lkdGg9IjEiIGhlaWdodD0iMSIgeD0iMSIgeT0iNiIvPjxyZWN0IHN0eWxlPSJmaWxsOiMzMzM7ZmlsbC1vcGFjaXR5Oi44OyIgd2lkdGg9IjEiIGhlaWdodD0iMSIgeD0iMSIgeT0iOCIvPjxyZWN0IHN0eWxlPSJmaWxsOiMzMzM7ZmlsbC1vcGFjaXR5Oi44OyIgd2lkdGg9IjEiIGhlaWdodD0iMSIgeD0iMSIgeT0iMTAiLz48L3N2Zz4=);
+        background-repeat: repeat-x;
+        height: 8px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 90%;
+        opacity: .2;
+        cursor: move;
+        margin: auto;
+    }
+}
+/***drag table and drag card css ends***/
 html,body{
     overflow-x: hidden;
 }
@@ -53,19 +69,55 @@ html,body{
 .bottom-1{
     bottom: 1rem;
 }
-
 a, button{
     @include transit(.3s);
 }
-.user-dropdown{
-    display:none;
+
+.site-nav{
+    @media only screen and (max-width:767px){
+        .menu-icon{
+            position: relative;
+            z-index: 100;
+            .lni-menu{
+                &:before{
+                    @include transit(.3s);
+                }
+            }
+            &.in{
+                .lni-menu{
+                    &:before{
+                        content: "\ea63";
+                    }
+                }
+            }
+        }
+        .nav-links{
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            background: #000;
+            z-index: 99;
+            display: none;
+            min-width: 250px;
+            padding-top: 55px;
+            display:none;
+            a{
+                display: block;
+                margin: 6px 20px;
+            }
+        }
+    }
+    .user-dropdown{
+        display:none;
+        z-index: 99;
+    }
 }
+
 .display-wrapper{
     min-height: calc(100vh - 130px);
     display: none;
     .task-wrapper{
-        //height: calc(100vh - 130px);
-        //overflow-y: auto;
         max-width: 300px;
         @media only screen and (max-width:1279px){
             min-width: 238px;
@@ -83,23 +135,6 @@ a, button{
 }
 .header-icon-menu,.setting-menu,.card-prop-menu{
     display: none;
-} 
-.display-tab{
-    a{
-        >*{
-            opacity: .5;
-            filter: alpha(opacity=50);
-            @include transit(.3s)
-        }
-        &:focus,&.active{
-            >*{
-                opacity:1;
-                filter: alpha(opacity=100);
-            }
-            background: #fff;
-            box-shadow: inset 0 0px 4px 1px rgba(0, 0, 0, 0.06);
-        }
-    }
 }  
 .setting-menu-top{
     top: 120%;
@@ -113,12 +148,12 @@ a, button{
         background: #fff;
     }
 }
-.top-100{
-    top: 105%;
-}
 .lni{
     &.text-sm {
         font-size: .875rem;
+    }
+    &.text-xl {
+        font-size: 1.25rem;
     }
 }
 .display-tab{
@@ -223,7 +258,24 @@ input[type="search"]:focus::-webkit-search-cancel-button {
     opacity: .3;
     pointer-events: all;
 }
-/******search bar custom close icon css******/
+/******search bar custom close icon css ends ******/
+.sort-table{
+    th{
+        cursor: pointer;
+        &.asc{
+            .sort-icon{
+                color: #333;
+                @include rotate(0deg);
+            }
+        }
+        &.desc{
+            .sort-icon{
+                color: #333;
+                @include rotate(180deg);
+            }
+        }
+    }
+}
 .header-search-wrapper{
     position: absolute;
     top: 0;
@@ -232,10 +284,12 @@ input[type="search"]:focus::-webkit-search-cancel-button {
     bottom: 0;
     z-index: 99;
     opacity: 0;
+    visibility: hidden;
     width: 0;
     @include transit(.3s);
     &.in{
         width: 100%;
+        visibility: visible;
         opacity: 1;
     }
     @media only screen and (min-width:640px){
@@ -276,54 +330,13 @@ input[type="search"]:focus::-webkit-search-cancel-button {
     position: relative;
 }
 
-[data-tooltip]::before,
-[data-tooltip]::after {
-    text-transform: none;
-    font-size: .9em;
-    line-height: 1;
-    user-select: none;
-    pointer-events: none;
-    position: absolute;
-    display: none;
-    opacity: 0;
-}
-[data-tooltip]::before {
-    content: '';
-    border: 5px solid transparent;
-    z-index: 1001;
-}
-[data-tooltip]::after {
-    content: attr(data-tooltip);
-    font-family: Helvetica, sans-serif;
-    text-align: center;
-    min-width: 3em;
-    max-width: 21em;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    padding: 1ch 1.5ch;
-    border-radius: .3ch;
-    box-shadow: 0 1em 2em -.5em rgba(0, 0, 0, 0.35);
-    background: #333;
-    color: #fff;
-    z-index: 1000;
-}
-[data-tooltip]:hover::before,
-[data-tooltip]:hover::after {
-    display: block;
-}
-[data-tooltip='']::before,
-[data-tooltip='']::after {
-    display: none !important;
-}
-
 /*********modal************/ 
 .modal {
     position: absolute;
     z-index: 10000; /* 1 */
     top: 0;
     left: 0;
-    visibility: hidden;
+    display:none;
     width: 100%;
     height: 100%;
     .modal-overlay {
@@ -341,7 +354,7 @@ input[type="search"]:focus::-webkit-search-cancel-button {
     .modal-wrapper {
         position: absolute;
         z-index: 9999;
-        top: 6em;
+        top: 3em;
         left: 0;
         right: 0;
         max-width: 32em;
@@ -374,7 +387,6 @@ input[type="search"]:focus::-webkit-search-cancel-button {
         }
     }
     &.is-visible {
-        visibility: visible;
         .modal-overlay {
             opacity: 1;
             visibility: visible;
@@ -386,7 +398,7 @@ input[type="search"]:focus::-webkit-search-cancel-button {
         }
     }
 }   
-
+/*********modal ends************/ 
 
 
   

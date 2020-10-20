@@ -9,22 +9,28 @@
 </head>
 
 <body>
-    <nav class="bg-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav class="bg-gray-800 site-nav">
+        <div class="mx-auto px-4 sm:px-6 lg:px-8">
           <div class="flex items-center justify-between h-16">
             <div class="flex items-center">
-              <div class="flex-shrink-0">
-                <img class="h-8 w-8" src="https://tailwindui.com/img/logos/workflow-mark-on-dark.svg" alt="Workflow logo">
-              </div>
-              <div class="hidden md:block">
-                <div class="ml-10 flex items-baseline space-x-4">
-                  <a href="#" class="px-3 py-2 rounded-md text-sm font-medium text-white focus:outline-none focus:text-white focus:bg-gray-700">Overview</a>
-    
-                  <a href="#" class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 bg-gray-900">Applications</a>
+                <div class="mr-5 flex md:hidden">
+                    <!-- Mobile menu button -->
+                    <button class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white focus:outline-none focus:text-white menu-icon">
+                        <i class="lni lni-menu text-xl"></i>
+                    </button>
                 </div>
-              </div>
+                <div class="flex-shrink-0">
+                    <img class="h-8 w-8" src="images/logo.svg" alt="Workflow logo">
+                </div>
+                <div class="bg-gray-900 nav-links md:block md:bg-transparent">
+                    <div class="md:ml-10 md:flex items-baseline">
+                        <a href="#" class="px-3 py-2 md:mr-3 rounded-md text-sm font-medium text-white focus:outline-none focus:text-white focus:bg-gray-700 hover:bg-gray-700">Overview</a>
+            
+                        <a href="#" class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 bg-gray-900">Applications</a>
+                    </div>
+                </div>
             </div>
-            <div class="hidden md:block">
+            <div class="nav-right">
               <div class="ml-4 flex items-center md:ml-6">
                 <button class="p-1 border-2 border-transparent text-gray-400 rounded-full hover:text-white focus:outline-none focus:text-white focus:bg-gray-700" aria-label="Notifications">
                   <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
@@ -35,34 +41,21 @@
                 <!-- Profile dropdown -->
                 <div class="ml-3 relative">
                   <div>
-                    <button class="max-w-xs flex items-center text-sm rounded-full text-white focus:outline-none focus:shadow-solid" id="user-menu" aria-label="User menu" aria-haspopup="true">
+                    <button class="max-w-xs flex items-center text-sm rounded-full text-white focus:outline-none focus:shadow-solid user-link" id="user-menu" aria-label="User menu" aria-haspopup="true">
                       <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
                     </button>
                   </div>
                   <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg user-dropdown">
                     <div class="py-1 rounded-md bg-white shadow-xs" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
-                      <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Your Profile</a>
+                      <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200" role="menuitem">Your Profile</a>
     
-                      <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Settings</a>
+                      <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200" role="menuitem">Settings</a>
     
-                      <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Sign out</a>
+                      <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200" role="menuitem">Sign out</a>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="-mr-2 flex md:hidden">
-              <!-- Mobile menu button -->
-              <button class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white">
-                <!-- Menu open: "hidden", Menu closed: "block" -->
-                <svg class="block h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-                <!-- Menu open: "block", Menu closed: "hidden" -->
-                <svg class="hidden h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
             </div>
           </div>
         </div>
@@ -113,7 +106,7 @@
                                             ECTC
                                         </label>
                                         <div class="relative">
-                                            <select name="ectc_filter" id="position-input" class="text-sm block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                                            <select name="ectc_filter" id="ectc-input" class="text-sm block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                                                 <option value="">Any</option>
                                                 <option value=""> &lt; 15,000</option>
                                                 <option value="">15,000 - 40,000</option>
@@ -129,7 +122,7 @@
                                             Experience
                                         </label>
                                         <div class="relative">
-                                            <select name="ectc_filter" id="position-input" class="text-sm block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                                            <select name="ectc_filter" id="exp-input" class="text-sm block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                                                 <option value="">Any</option>
                                                 <option value="">Fresher</option>
                                                 <option value="">1</option>
@@ -149,7 +142,7 @@
                                             Review
                                         </label>
                                         <div class="relative">
-                                            <select name="ectc_filter" id="position-input" class="text-sm block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                                            <select name="ectc_filter" id="review-input" class="text-sm block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                                                 <option value="">Any</option>
                                                 <option value="">NA</option>
                                                 <option value="">1</option>
@@ -272,7 +265,7 @@
         </div>
       </header>
 
-      <main>
+    <main>
         <div class="mx-auto py-6 px-4 sm:px-6 lg:px-8 bg-gray-100 display-wrapper" id="table-display" style="display: block;">
             <div class="flex flex-col">
                 <div class="-my-2 overflow-x-auto slick-scroll sm:-mx-6 lg:-mx-8">
@@ -281,46 +274,68 @@
                       <table class="min-w-full divide-y divide-gray-200 sort-table">
                         <thead>
                           <tr class="bg-white">
-                            <th class="px-3 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                                ID
+                            <th class="px-3 pt-4 pb-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercpy-3ase tracking-wider">
+                                <div class="drag-handle-disbaled"></div>
+                                <span>ID</span>
                               </th>
-                            <th class="px-3 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                                Name
+                            <th class="sortbale-col px-3 pt-4 pb-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                <div class="drag-handle-disbaled"></div>
+                                <div class="flex items-center justify-center">
+                                    <span>Name</span>
+                                    <span class="sort-icon ml-1 text-gray-500 hover:text-gray-700 cursor-pointer"><i class="lni lni-arrow-down"></i></span>
+                                </div>
                             </th>
-                            <th class="draggable-col cursor-move px-3 py-3 bg-gray-50 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                                Email
+                            <th class="sortbale-col draggable-col px-3 pt-4 pb-3 bg-gray-50 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                <div class="drag-handle"></div>
+                                <div class="flex items-center justify-center">
+                                    <span>Email</span>
+                                    <span class="sort-icon ml-1 text-gray-500 hover:text-gray-700 cursor-pointer"><i class="lni lni-arrow-down"></i></span>
+                                </div>
                             </th>
-                            <th class="draggable-col cursor-move px-3 py-3 bg-gray-50 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                                Phone
+                            <th class="sortbale-col draggable-col px-3 pt-4 pb-3 bg-gray-50 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                <div class="drag-handle"></div>
+                                <div class="flex items-center justify-center">
+                                    <span>Phone</span>
+                                    <span class="sort-icon ml-1 text-gray-500 hover:text-gray-700 cursor-pointer"><i class="lni lni-arrow-down"></i></span>
+                                </div>
                             </th>
-                            <th data-app-class="app-position" class="draggable-col cursor-move px-3 py-3 bg-gray-50 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                                Position
+                            <th data-app-class="app-position" class="sortbale-col draggable-col px-3 pt-4 pb-3 bg-gray-50 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                <div class="drag-handle"></div>
+                                <div class="flex items-center justify-center">
+                                    <span>Position</span>
+                                    <span class="sort-icon ml-1 text-gray-500 hover:text-gray-700 cursor-pointer"><i class="lni lni-arrow-down"></i></span>
+                                </div>
                             </th>
-                            <th data-app-class="app-date" class="draggable-col cursor-move px-3 py-3 bg-gray-50 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                            <th data-app-class="app-date" class="sortbale-col draggable-col px-3 pt-4 pb-3 bg-gray-50 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                <div class="drag-handle"></div>
                                 <div class="flex items-center justify-center">
                                     <span>Date</span>
-                                    <span class="sort-icon ml-1 text-gray-500 hover:text-gray-700 cursor-pointer"><i class="lni lni-arrow-up"></i></span>
+                                    <span class="sort-icon ml-1 text-gray-500 hover:text-gray-700 cursor-pointer"><i class="lni lni-arrow-down"></i></span>
                                 </div>
                             </th>
-                            <th data-app-class="app-exp" class="draggable-col cursor-move px-3 py-3 bg-gray-50 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                            <th data-app-class="app-exp" class="sortbale-col draggable-col px-3 pt-4 pb-3 bg-gray-50 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                <div class="drag-handle"></div>
                                 <div class="flex items-center justify-center">
                                     <span>Experience</span>
-                                    <span class="sort-icon ml-1 text-gray-500 hover:text-gray-700 cursor-pointer"><i class="lni lni-arrow-up"></i></span>
+                                    <span class="sort-icon ml-1 text-gray-500 hover:text-gray-700 cursor-pointer"><i class="lni lni-arrow-down"></i></span>
                                 </div>
                             </th>
-                            <th data-app-class="app-ectc" class="draggable-col cursor-move px-3 py-3 bg-gray-50 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                            <th data-app-class="app-ectc" class="sortbale-col draggable-col px-3 pt-4 pb-3 bg-gray-50 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                <div class="drag-handle"></div>
                                 <div class="flex items-center justify-center">
                                     <span>ECTC</span>
-                                    <span class="sort-icon ml-1 text-gray-500 hover:text-gray-700 cursor-pointer"><i class="lni lni-arrow-up"></i></span>
+                                    <span class="sort-icon ml-1 text-gray-500 hover:text-gray-700 cursor-pointer"><i class="lni lni-arrow-down"></i></span>
                                 </div>
                             </th>
-                            <th data-app-class="app-review" class="draggable-col cursor-move px-3 py-3 bg-gray-50 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                            <th data-app-class="app-review" class="sortbale-col draggable-col px-3 pt-4 pb-3 bg-gray-50 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                <div class="drag-handle"></div>
                                 <div class="flex items-center justify-center">
                                     <span>Review</span>
-                                    <span class="sort-icon ml-1 text-gray-500 hover:text-gray-700 cursor-pointer"><i class="lni lni-arrow-up"></i></span>
+                                    <span class="sort-icon ml-1 text-gray-500 hover:text-gray-700 cursor-pointer"><i class="lni lni-arrow-down"></i></span>
                                 </div>
                             </th>
-                            <th class="draggable-col cursor-move px-3 py-3 bg-gray-50 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                            <th class="sortbale-col draggable-col px-3 pt-4 pb-3 bg-gray-50 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                <div class="drag-handle"></div>
                                 Status
                             </th>
                             <th></th>
@@ -334,55 +349,55 @@
                                     </div>
                                 </td>
                                 <td class="px-3 py-4 whitespace-no-wrap">
-                                <div class="flex items-center">
-                                    <div class="flex-shrink-0 h-10 w-10">
-                                    <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=60" alt="">
-                                    </div>
-                                    <div class="ml-3">
-                                    <div class="text-sm leading-5 font-medium text-gray-900">
-                                        Jane Cooper
-                                    </div>
-                                    </div>
-                                </div>
-                                </td>
-                                <td class="px-3 py-4 whitespace-no-wrap text-center">
-                                    <div class="text-sm leading-5 text-gray-700">
-                                        jane.cooper@gmail.com
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0 h-10 w-10">
+                                        <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=60" alt="">
+                                        </div>
+                                        <div class="ml-3">
+                                        <div class="text-sm leading-5 font-medium text-gray-900">
+                                            <span class="sort-value">Jane Cooper</span>
+                                        </div>
+                                        </div>
                                     </div>
                                 </td>
                                 <td class="px-3 py-4 whitespace-no-wrap text-center">
                                     <div class="text-sm leading-5 text-gray-700">
-                                        08886668888
+                                        <span class="sort-value">jane.cooper@gmail.com</span>
+                                    </div>
+                                </td>
+                                <td class="px-3 py-4 whitespace-no-wrap text-center">
+                                    <div class="text-sm leading-5 text-gray-700">
+                                        <span class="sort-value">08886668888</span>
                                     </div>
                                 </td>
                                 <td data-app-class="app-position" class="px-3 py-4 whitespace-no-wrap text-center">
                                     <div class="text-sm leading-5 text-gray-700">
-                                        Shopify Developer
+                                        <span class="sort-value">Shopify Developer</span>
                                     </div>
                                 </td>
                                 <td data-app-class="app-date" class="px-3 py-4 whitespace-no-wrap text-center">
                                     <div class="text-sm leading-5 text-gray-700">
-                                        20 Oct, 2020                             
+                                        <span class="sort-value">2020/10/20 </span>                           
                                     </div>
                                 </td>
                                 <td data-app-class="app-exp" class="px-3 py-4 whitespace-no-wrap text-center">
                                     <div class="text-sm leading-5 text-gray-700">
-                                        7.2
+                                        <span class="sort-value">7.2</span>
                                     </div>
                                 </td>
                                 <td data-app-class="app-ectc" class="px-3 py-4 whitespace-no-wrap text-center">
                                     <div class="text-sm leading-5 text-gray-700">
-                                        9.5
+                                        <span class="sort-value">9.5</span>
                                     </div>
                                 </td>
                                 <td data-app-class="app-review" class="px-3 py-4 whitespace-no-wrap text-center">
                                     <div class="text-sm leading-5 text-gray-700">
-                                        Null
+                                        <span class="sort-value">0</span>
                                     </div>
                                 </td>
                                 <td class="px-3 py-4 whitespace-no-wrap text-center">
                                     <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-200 text-gray-600">
-                                        New
+                                        <span class="sort-value">New</span>
                                     </span>
                                 </td>
                                 <td class="px-3 py-4 whitespace-no-wrap text-center">
@@ -408,49 +423,49 @@
                                     </div>
                                     <div class="ml-3">
                                         <div class="text-sm leading-5 font-medium text-gray-900">
-                                        Will Carter
+                                            <span class="sort-value">Will Carter</span>
                                         </div>
                                     </div>
                                     </div>
                                 </td>
                                 <td class="px-3 py-4 whitespace-no-wrap text-center">
                                     <div class="text-sm leading-5 text-gray-700">
-                                        willcarter6@gmail.com
+                                        <span class="sort-value">willcarter6@gmail.com</span>
                                     </div>
                                 </td>
                                 <td class="px-3 py-4 whitespace-no-wrap text-center">
                                     <div class="text-sm leading-5 text-gray-700">
-                                        08886668888
+                                        <span class="sort-value">08886668888</span>
                                     </div>
                                 </td>
                                 <td data-app-class="app-position" class="px-3 py-4 whitespace-no-wrap text-center">
                                     <div class="text-sm leading-5 text-gray-700">
-                                        Wordpress Developer
+                                        <span class="sort-value">Wordpress Developer</span>
                                     </div>
                                 </td>
                                 <td data-app-class="app-date" class="px-3 py-4 whitespace-no-wrap text-center">
                                     <div class="text-sm leading-5 text-gray-700">
-                                        15 Oct, 2020                             
+                                        <span class="sort-value">2020/10/15  </span>                           
                                     </div>
                                 </td>
                                 <td data-app-class="app-exp" class="px-3 py-4 whitespace-no-wrap text-center">
                                     <div class="text-sm leading-5 text-gray-700">
-                                        3.8
+                                        <span class="sort-value">3.8</span>
                                     </div>
                                 </td>
                                 <td data-app-class="app-ectc" class="px-3 py-4 whitespace-no-wrap text-center">
                                     <div class="text-sm leading-5 text-gray-700">
-                                        4.2
+                                        <span class="sort-value">4.2</span>
                                     </div>
                                 </td>
                                 <td data-app-class="app-review" class="px-3 py-4 whitespace-no-wrap text-center">
                                     <div class="text-sm leading-5 text-gray-700">
-                                        7.2
+                                        <span class="sort-value">7.2</span>
                                     </div>
                                 </td>
                                 <td class="px-3 py-4 whitespace-no-wrap text-center">
                                     <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-orange-100 text-orange-600">
-                                        HR Round
+                                        <span class="sort-value">HR Round</span>
                                     </span>
                                 </td>
                                 <td class="px-3 py-4 whitespace-no-wrap text-center">
@@ -476,49 +491,49 @@
                                     </div>
                                     <div class="ml-3">
                                         <div class="text-sm leading-5 font-medium text-gray-900">
-                                        John Doe
+                                            <span class="sort-value">John Doe</span>
                                         </div>
                                     </div>
                                     </div>
                                 </td>
                                 <td class="px-3 py-4 whitespace-no-wrap text-center">
                                     <div class="text-sm leading-5 text-gray-700">
-                                        john.doe@gmail.com
+                                        <span class="sort-value">john.doe@gmail.com</span>
                                     </div>
                                 </td>
                                 <td class="px-3 py-4 whitespace-no-wrap text-center">
                                     <div class="text-sm leading-5 text-gray-700">
-                                        08886668888
+                                        <span class="sort-value">08886668888</span>
                                     </div>
                                 </td>
                                 <td data-app-class="app-position" class="px-3 py-4 whitespace-no-wrap text-center">
                                     <div class="text-sm leading-5 text-gray-700">
-                                        UI/UX Developer
+                                        <span class="sort-value">UI/UX Developer</span>
                                     </div>
                                 </td>
                                 <td data-app-class="app-date" class="px-3 py-4 whitespace-no-wrap text-center">
                                     <div class="text-sm leading-5 text-gray-700">
-                                        14 Oct, 2020                             
+                                        <span class="sort-value">2020/10/14</span>                  
                                     </div>
                                 </td>
                                 <td data-app-class="app-exp" class="px-3 py-4 whitespace-no-wrap text-center">
                                     <div class="text-sm leading-5 text-gray-700">
-                                        4.8
+                                        <span class="sort-value">4.8</span>
                                     </div>
                                 </td>
                                 <td data-app-class="app-ectc" class="px-3 py-4 whitespace-no-wrap text-center">
                                     <div class="text-sm leading-5 text-gray-700">
-                                        5.5
+                                        <span class="sort-value">5.5</span>
                                     </div>
                                 </td>
                                 <td data-app-class="app-review" class="px-3 py-4 whitespace-no-wrap text-center">
                                     <div class="text-sm leading-5 text-gray-700">
-                                        6.0
+                                        <span class="sort-value">6.0</span>
                                     </div>
                                 </td>
                                 <td class="px-3 py-4 whitespace-no-wrap text-center">
                                     <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-600">
-                                        Machine Test
+                                        <span class="sort-value">Machine Test</span>
                                     </span>
                                 </td>
                                 <td class="px-3 py-4 whitespace-no-wrap text-center">
@@ -544,49 +559,49 @@
                                     </div>
                                     <div class="ml-3">
                                     <div class="text-sm leading-5 font-medium text-gray-900">
-                                        Terry Smith
+                                        <span class="sort-value">Terry Smith</span>
                                     </div>
                                     </div>
                                 </div>
                                 </td>
                                 <td class="px-3 py-4 whitespace-no-wrap text-center">
                                     <div class="text-sm leading-5 text-gray-700">
-                                        terry.smith@gmail.com
+                                        <span class="sort-value">terry.smith@gmail.com</span>
                                     </div>
                                 </td>
                                 <td class="px-3 py-4 whitespace-no-wrap text-center">
                                     <div class="text-sm leading-5 text-gray-700">
-                                        08886668888
+                                        <span class="sort-value">08886668888</span>
                                     </div>
                                 </td>
                                 <td data-app-class="app-position" class="px-3 py-4 whitespace-no-wrap text-center">
                                     <div class="text-sm leading-5 text-gray-700">
-                                        PHP Developer
+                                        <span class="sort-value">PHP Developer</span>
                                     </div>
                                 </td>
                                 <td data-app-class="app-date" class="px-3 py-4 whitespace-no-wrap text-center">
                                     <div class="text-sm leading-5 text-gray-700">
-                                        8 Oct, 2020                             
+                                        <span class="sort-value">2020/10/08</span>                         
                                     </div>
                                 </td>
                                 <td data-app-class="app-exp" class="px-3 py-4 whitespace-no-wrap text-center">
                                     <div class="text-sm leading-5 text-gray-700">
-                                        2.2
+                                        <span class="sort-value">2.2</span>
                                     </div>
                                 </td>
                                 <td data-app-class="app-ectc" class="px-3 py-4 whitespace-no-wrap text-center">
                                     <div class="text-sm leading-5 text-gray-700">
-                                        3.5
+                                        <span class="sort-value">3.5</span>
                                     </div>
                                 </td>
                                 <td data-app-class="app-review" class="px-3 py-4 whitespace-no-wrap text-center">
                                     <div class="text-sm leading-5 text-gray-700">
-                                        7.0
+                                        <span class="sort-value">7.0</span>
                                     </div>
                                 </td>
                                 <td class="px-3 py-4 whitespace-no-wrap text-center">
                                     <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-600">
-                                        Selected
+                                        <span class="sort-value">Selected</span>
                                     </span>
                                 </td>
                                 <td class="px-3 py-4 whitespace-no-wrap text-center">
@@ -612,49 +627,49 @@
                                     </div>
                                     <div class="ml-3">
                                         <div class="text-sm leading-5 font-medium text-gray-900">
-                                        Alice Cole
+                                            <span class="sort-value">Alice Cole</span>
                                         </div>
                                     </div>
                                     </div>
                                 </td>
                                 <td class="px-3 py-4 whitespace-no-wrap text-center">
                                     <div class="text-sm leading-5 text-gray-700">
-                                        alicecole@gmail.com
+                                        <span class="sort-value">alicecole@gmail.com</span>
                                     </div>
                                 </td>
                                 <td class="px-3 py-4 whitespace-no-wrap text-center">
                                     <div class="text-sm leading-5 text-gray-700">
-                                        08886668888
+                                        <span class="sort-value">08886668888</span>
                                     </div>
                                 </td>
                                 <td data-app-class="app-position" class="px-3 py-4 whitespace-no-wrap text-center">
                                     <div class="text-sm leading-5 text-gray-700">
-                                        UI/UX Developer
+                                        <span class="sort-value">UI/UX Developer</span>
                                     </div>
                                 </td>
                                 <td data-app-class="app-date" class="px-3 py-4 whitespace-no-wrap text-center">
                                     <div class="text-sm leading-5 text-gray-700">
-                                        4 Oct, 2020                             
+                                        <span class="sort-value">2020/10/04</span>                           
                                     </div>
                                 </td>
                                 <td data-app-class="app-exp" class="px-3 py-4 whitespace-no-wrap text-center">
                                     <div class="text-sm leading-5 text-gray-700">
-                                        1.8
+                                        <span class="sort-value">1.8</span>
                                     </div>
                                 </td>
                                 <td data-app-class="app-ectc" class="px-3 py-4 whitespace-no-wrap text-center">
                                     <div class="text-sm leading-5 text-gray-700">
-                                        2.5
+                                        <span class="sort-value">2.5</span>
                                     </div>
                                 </td>
                                 <td data-app-class="app-review" class="px-3 py-4 whitespace-no-wrap text-center">
                                     <div class="text-sm leading-5 text-gray-700">
-                                        2.0
+                                        <span class="sort-value">2.0</span>
                                     </div>
                                 </td>
                                 <td class="px-3 py-4 whitespace-no-wrap text-center">
                                     <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-600">
-                                        Rejected
+                                        <span class="sort-value">Rejected</span>
                                     </span>
                                 </td>
                                 <td class="px-3 py-4 whitespace-no-wrap text-center">
@@ -675,7 +690,7 @@
                 </div>
             </div>
         </div>
-        <!----table display ends here---->
+        <!--table display ends here-->
 
         <div class="mx-auto py-6 px-4 sm:px-6 lg:px-8 bg-gray-100 display-wrapper w-full" id="board-display">
             <div class="flex overflow-x-auto slick-scroll">
@@ -713,7 +728,7 @@
                         </p>
                         <p data-app-class="app-date"  class="text-sm leading-4 py-1 text-gray-700">
                             <i class="text-gray-500 lni lni-calendar mr-2"></i>
-                            <span>20 Oct, 2020</span>
+                            <span>2020/10/20</span>
                         </p>
                         <p data-app-class="app-exp"  class="text-sm leading-4 py-1 text-gray-700">
                             <i class="text-gray-500 lni lni-shield mr-2"></i>
@@ -725,11 +740,11 @@
                         </p>
                         <p data-app-class="app-review"  class="text-sm leading-4 py-1 text-gray-700">
                             <i class="text-gray-500 lni lni-star mr-2"></i>
-                            <span>Null</span>
+                            <span>0</span>
                         </p>
-                    </div><!-----card ends-->
+                    </div><!---card ends-->
                 </div>
-                <!----New applications wrapper ends--->
+                <!--New applications wrapper ends-->
                 <div class="flex-1 mx-3 task-wrapper sortable" data-app-class="app-machine-test">
                     <h1 class="py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"><span class="h-3 w-3 rounded-full bg-blue-500 inline-block mr-1"></span> Machine Test</h1>
                     <div class="shadow border-b border-gray-200 rounded-lg bg-white p-3 app-card draggable">
@@ -764,7 +779,7 @@
                         </p>
                         <p data-app-class="app-date" class="text-sm leading-4 py-1 text-gray-700">
                             <i class="text-gray-500 lni lni-calendar mr-2"></i>
-                            <span>14 Oct, 2020</span>
+                            <span>2020/10/14</span>
                         </p>
                         <p data-app-class="app-exp" class="text-sm leading-4 py-1 text-gray-700">
                             <i class="text-gray-500 lni lni-shield mr-2"></i>
@@ -778,9 +793,9 @@
                             <i class="text-gray-500 lni lni-star mr-2"></i>
                             <span>6.0</span>
                         </p>
-                    </div><!-----card ends-->
+                    </div><!---card ends-->
                 </div>
-                <!----Machine test applications wrapper ends--->
+                <!--Machine test applications wrapper ends-->
                 <div class="flex-1 mx-3 task-wrapper sortable" data-app-class="app-hr-round">
                     <h1 class="py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"><span class="h-3 w-3 rounded-full bg-orange-500 inline-block mr-1"></span> HR Round</h1>
                     <div class="shadow border-b border-gray-200 rounded-lg bg-white p-3 app-card draggable">
@@ -815,7 +830,7 @@
                         </p>
                         <p data-app-class="app-date"  class="text-sm leading-4 py-1 text-gray-700">
                             <i class="text-gray-500 lni lni-calendar mr-2"></i>
-                            <span>15 Oct, 2020</span>
+                            <span>2020/10/15</span>
                         </p>
                         <p data-app-class="app-exp"  class="text-sm leading-4 py-1 text-gray-700">
                             <i class="text-gray-500 lni lni-shield mr-2"></i>
@@ -829,9 +844,9 @@
                             <i class="text-gray-500 lni lni-star mr-2"></i>
                             <span>7.2</span>
                         </p>
-                    </div><!-----card ends-->
+                    </div><!---card ends-->
                 </div>
-                <!----HR Round applications wrapper ends--->
+                <!--HR Round applications wrapper ends-->
                 <div class="flex-1 mx-3 task-wrapper sortable" data-app-class="app-selected">
                     <h1 class="py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"><span class="h-3 w-3 rounded-full bg-green-500 inline-block mr-1"></span> Selected</h1>
                     <div class="shadow border-b border-gray-200 rounded-lg bg-white p-3 app-card draggable">
@@ -866,7 +881,7 @@
                         </p>
                         <p data-app-class="app-date"  class="text-sm leading-4 py-1 text-gray-700">
                             <i class="text-gray-500 lni lni-calendar mr-2"></i>
-                            <span>8 Oct, 2020</span>
+                            <span>2020/10/08</span>
                         </p>
                         <p data-app-class="app-exp"  class="text-sm leading-4 py-1 text-gray-700">
                             <i class="text-gray-500 lni lni-shield mr-2"></i>
@@ -880,9 +895,9 @@
                             <i class="text-gray-500 lni lni-star mr-2"></i>
                             <span>7.0</span>
                         </p>
-                    </div><!-----card ends-->
+                    </div><!---card ends-->
                 </div>
-                <!----Selected applications wrapper ends--->
+                <!--Selected applications wrapper ends-->
                 <div class="flex-1 mx-3 task-wrapper sortable" data-app-class="app-rejected">
                     <h1 class="py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"><span class="h-3 w-3 rounded-full bg-red-500 inline-block mr-1"></span> Rejected</h1>
                     <div class="shadow border-b border-gray-200 rounded-lg bg-white p-3 app-card draggable">
@@ -917,7 +932,7 @@
                         </p>
                         <p data-app-class="app-date"  class="text-sm leading-4 py-1 text-gray-700">
                             <i class="text-gray-500 lni lni-calendar mr-2"></i>
-                            <span>4 Oct, 2020</span>
+                            <span>2020/10/04</span>
                         </p>
                         <p data-app-class="app-exp"  class="text-sm leading-4 py-1 text-gray-700">
                             <i class="text-gray-500 lni lni-shield mr-2"></i>
@@ -931,16 +946,15 @@
                             <i class="text-gray-500 lni lni-star mr-2"></i>
                             <span>2.0</span>
                         </p>
-                    </div><!-----card ends-->
+                    </div><!---card ends-->
                 </div>
-                <!----Rejected applications wrapper ends--->
+                <!--Rejected applications wrapper ends-->
             </div>
         </div>
-        <!----board display ends here---->
-      </main>
-    </div>
+        <!--board display ends here-->
+    </main>
 
-    <!----add application form--->
+    <!--add application form-->
     <div class="modal">
         <div class="modal-overlay modal-toggle"></div>
         <div class="modal-wrapper modal-transition">
@@ -951,7 +965,7 @@
           
           <div class="modal-body p-2">
             <div class="modal-content">
-                <form action="" method="post">
+                <form class="application-form">
                     <div class="sm:flex">
                         <div class="flex-1 m-2">
                             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">First Name</label>
@@ -959,7 +973,7 @@
                         </div>
                         <div class="flex-1 m-2">
                             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Last Name</label>
-                            <input type="text" name="last_name" class="text-sm block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" pattern="[A-Za-z\s]+" required  required oninvalid="setCustomValidity('Required field. Only letters (either case) allowed')" oninput="setCustomValidity('')" placeholder="e.g. Doe">
+                            <input type="text" name="last_name" class="text-sm block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" pattern="[A-Za-z\s]+" required oninvalid="setCustomValidity('Required field. Only letters (either case) allowed')" oninput="setCustomValidity('')" placeholder="e.g. Doe">
                         </div>
                     </div>
                     <div class="sm:flex">
