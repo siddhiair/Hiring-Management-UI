@@ -1,4 +1,4 @@
-# Hiring Managment UI
+# Hiring Management UI
 
 A UI prototype for Hiring Management in table and kanban format.
 
@@ -7,10 +7,11 @@ A UI prototype for Hiring Management in table and kanban format.
   - CSS3
   - SCSS
   - JS
-  - jQuery and jQuery UI.
+  - jQuery and jQuery UI
 
-### CSS Framework
-  - Tailwind CSS
+### CSS Framework and icon library
+  - [Tailwind CSS](https://tailwindcss.com/)
+  - [LineIcons](https://lineicons.com/)
 
 ### Installation
 - Run index.html in a browser
