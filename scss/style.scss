@@ -3,27 +3,42 @@
 @import 'https://cdn.lineicons.com/2.0/LineIcons.min.css';
 @import 'variables';
 
+html,body{
+    overflow-x: hidden;
+}
+.right-1{
+    right: 1rem;
+}
+.bottom-1{
+    bottom: 1rem;
+}
+a, button{
+    @include transit(.3s);
+}
+
 /***drag table and drag card css starts***/
 .dragtable-sortable { 
-    list-style-type: none; margin: 0; padding: 0; -moz-user-select: none;
+    list-style-type: none; 
+    margin: 0; 
+    padding: 0; 
+    -moz-user-select: none;
+    li{
+        margin: 0; padding: 0; float: left; font-size: 1em; background: white; 
+    }
+    th,td{
+        border-left: 0px;
+    }
+    li:first-child{
+        th,td{
+            border-left: 1px solid #CCC; 
+        }
+    }
 }
-.dragtable-sortable li {
-    margin: 0; padding: 0; float: left; font-size: 1em; background: white; 
-}
-
-.dragtable-sortable th, .dragtable-sortable td{
-    border-left: 0px;
-}
-
-.dragtable-sortable li:first-child th, .dragtable-sortable li:first-child td {
-    border-left: 1px solid #CCC; 
-}
-
 .ui-sortable-helper {
     opacity: 0.8;
     filter: alpha(opacity=80);
 }
-.ui-sortable-placeholder, { 
+.ui-sortable-placeholder { 
     -moz-box-shadow: 4px 5px 4px rgba(#C6C6C6, .1) inset;
     -webkit-box-shadow: 4px 5px 4px rgba(#C6C6C6, .1) inset;
     box-shadow: 4px 5px 4px rgba(#C6C6C6, .1) inset;
@@ -59,20 +74,8 @@
         margin: auto;
     }
 }
-/***drag table and drag card css ends***/
-html,body{
-    overflow-x: hidden;
-}
-.right-1{
-    right: 1rem;
-}
-.bottom-1{
-    bottom: 1rem;
-}
-a, button{
-    @include transit(.3s);
-}
 
+/**site nav css**/
 .site-nav{
     @media only screen and (max-width:767px){
         .menu-icon{
@@ -114,6 +117,7 @@ a, button{
     }
 }
 
+/**Display css**/
 .display-wrapper{
     min-height: calc(100vh - 130px);
     display: none;
@@ -124,6 +128,8 @@ a, button{
         }
     }
 }
+
+/**header right icon css**/
 .header-icon{
     i{
         @include transit(.3s);
@@ -133,12 +139,17 @@ a, button{
         }
     }
 }
+
+/**Hide dropdown menus**/
 .header-icon-menu,.setting-menu,.card-prop-menu{
     display: none;
 }  
+
 .setting-menu-top{
     top: 120%;
 } 
+
+/**card css**/
 .app-card{
     cursor: pointer;
     margin-bottom: 0.75rem;
@@ -148,6 +159,8 @@ a, button{
         background: #fff;
     }
 }
+
+/**line icon extra css**/
 .lni{
     &.text-sm {
         font-size: .875rem;
@@ -156,6 +169,8 @@ a, button{
         font-size: 1.25rem;
     }
 }
+
+/**Display tabs css**/
 .display-tab{
     height: 35px;
     &:before{
@@ -191,6 +206,8 @@ a, button{
         }
     }
 }
+
+/**dropdown switch btn css**/
 .switchbtn {
     position: relative;
     display: inline-block;
@@ -258,7 +275,8 @@ input[type="search"]:focus::-webkit-search-cancel-button {
     opacity: .3;
     pointer-events: all;
 }
-/******search bar custom close icon css ends ******/
+
+/**sort table css**/
 .sort-table{
     th{
         cursor: pointer;
@@ -276,6 +294,8 @@ input[type="search"]:focus::-webkit-search-cancel-button {
         }
     }
 }
+
+/**Header search bar css**/
 .header-search-wrapper{
     position: absolute;
     top: 0;
@@ -306,6 +326,7 @@ input[type="search"]:focus::-webkit-search-cancel-button {
     }
 }
 
+/**Slick scollbar css**/
 .slick-scroll{
     &::-webkit-scrollbar-track
     {
@@ -323,11 +344,6 @@ input[type="search"]:focus::-webkit-search-cancel-button {
     {
         background-color: #ccc;
     }
-}
-  
-/* data-tooltip  */
-[data-tooltip] {
-    position: relative;
 }
 
 /*********modal************/ 
@@ -398,7 +414,6 @@ input[type="search"]:focus::-webkit-search-cancel-button {
         }
     }
 }   
-/*********modal ends************/ 
 
 
   

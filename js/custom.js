@@ -1,22 +1,26 @@
 jQuery(document).ready(function($) {
+    /* mobile menu */
     $(".menu-icon").click(function(){
         $(".nav-links").fadeToggle();
         $(this).toggleClass("in");
     });
+    /* user account menu */
     $(".user-link").click(function(){
         $(".user-dropdown").fadeToggle();
     });
+    /* card drag */
     $( ".sortable" ).sortable({
         connectWith: ".task-wrapper",
         stack: '.task-wrapper',
         placeholder: 'sortable-placeholder'
     }).disableSelection();
 
+    /* table drag */
     $(".sort-table").dragtable({
         dragaccept: '.draggable-col',
         dragHandle: '.drag-handle'          
     });
-
+    /* table asc-desc sorting */
     $('.sort-table').on('click', '.sortbale-col', function () {
       var index = $(this).index(),
           rows = [],
@@ -34,10 +38,10 @@ jQuery(document).ready(function($) {
             bValue = $(b).find('td').eq(index).find(".sort-value").text();
 
         return aValue > bValue
-             ? 1
-             : aValue < bValue
-             ? -1
-             : 0;
+            ? 1
+            : aValue < bValue
+            ? -1
+            : 0;
       });
 
       if ($(this).hasClass('desc')) {
@@ -49,6 +53,7 @@ jQuery(document).ready(function($) {
       });
     });
 
+    /* display tabs toggle */
     $(".display-tab button").click(function(e){
         $(".display-tab button").not(this).removeClass("focused");
         $(this).addClass("focused");
@@ -60,10 +65,14 @@ jQuery(document).ready(function($) {
             $(".display-tab").removeClass("active-tab2");
         $("#"+display).fadeIn();
     });
+
+    /* Card properties and rounds toggle */
     $('.switchbtn input[type="checkbox"]').click(function(){
         var inputValue = $(this).val();
         $("[data-app-class = "+inputValue+"]").slideToggle();
     });
+
+    /* Header right icons active and hover css */
     $(".header-icon").hover(function(){
         $(this).children("i").addClass("in");
     },
@@ -71,14 +80,15 @@ jQuery(document).ready(function($) {
         $(this).children("i").removeClass("in");
     });
 
+    /* Search bar toggle */
     $(".header-search").click(function(){
         $(".header-search-wrapper").addClass("in");
     });
     $(".close-search").click(function(){
-        //$(".header-search-wrapper").hide();
         $(".header-search-wrapper").removeClass("in");
     });
 
+    /* header icon dropdown toggle */
     $(".setting-more").click(function(){
         $(".setting-menu").not($(this).next()).hide();
         $(this).next(".setting-menu").fadeToggle(100);
@@ -90,6 +100,8 @@ jQuery(document).ready(function($) {
     $(".card-prop-back").click(function(){
         $(this).parent(".card-prop-menu").hide();
     });
+
+    /* close dropdown menu after clicking outside */
     $(document).mousedown(function (e){
         var click_source = $(".setting-more,.more-icon");
         if(click_source.is(e.target)){
@@ -100,15 +112,20 @@ jQuery(document).ready(function($) {
             toggle_div.hide();            
         }
     });
+
+    /* edit/delete menu toggle */
     $(".more-icon").click(function(){
         $(".more-menu").not($(this).next()).hide();
         $(this).next(".more-menu").toggle();
     });
+
+    /* open modal */
     $('.modal-toggle').on('click', function(e) {
         e.preventDefault();
         $('.modal').fadeToggle().toggleClass('is-visible');
     });
 
+    /* disable future dates on HTML5 datepicker */
     var dtToday = new Date();
     var month = dtToday.getMonth() + 1;
     var day = dtToday.getDate();
