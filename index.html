@@ -75,23 +75,22 @@
                     <h1 class="flex-initial text-2xl font-bold leading-tight text-gray-900 mb-3 md:mb-0 md:mr-5">
                         Applications
                     </h1>
-                    <div class="flex flex-auto justify-between">
-                        <div class="flex display-tab">
-                            <div>
-                                <input type="checkbox" class="display-tab-toggle" id="display-tab-toggle"/>
-                                <label for="display-tab-toggle">
-                                    <span class="on text-sm font-medium text-gray-700"><i class="lni lni-grid"></i> Table</span>
-                                    <span class="off text-sm font-medium text-gray-700"><i class="lni lni-grid-alt"></i> Board</span>
-                                </label>
-                            </div>
-                        </div>        
+                    <div class="flex flex-auto justify-between items-center relative">
+                        <div class="display-tab inline-flex items-center relative rounded bg-gray-300">
+                            <button class="text-sm text-gray-800 font-medium py-1 px-2 leading-3 h-8 focus:outline-none focused" data-target="table-display" data-display-tab="1">
+                                <i class="lni lni-grid mr-1"></i> Table
+                            </button>
+                            <button class="text-sm text-gray-800 font-medium py-1 px-2 leading-3 h-8 focus:outline-none" data-target="board-display" data-display-tab="2">
+                                <i class="lni lni-grid-alt mr-1"></i> Board
+                            </button>
+                        </div>       
                         <div class="flex items-center justify-between md:justify-end">
-                            <div class="header-icon">
-                                <i class="text-gray-500 hover:text-gray-700 p-3 cursor-pointer lni lni-search-alt"></i>
+                            <div class="header-icon header-search">
+                                <i class="text-gray-500 hover:text-gray-700 p-3 cursor-pointer lni lni-search-alt"></i>                                
                             </div>
                             <div class="header-icon relative" data-tooltip="Filter">
                                 <i class="text-gray-500 hover:text-gray-700 p-3 cursor-pointer lni lni-funnel setting-more"></i>
-                                <div class="shadow bg-white rounded-lg absolute right-0 setting-menu-top w-48 bg-white z-10 pb-3 pt-1 setting-menu md:right-auto md:left-0">
+                                <div class="shadow bg-white rounded-lg absolute right-0 setting-menu-top w-48 bg-white z-20 pb-3 pt-1 setting-menu md:right-auto md:left-0">
                                     <div class="p-2">
                                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="position-input">
                                             Position
@@ -142,7 +141,7 @@
                                             </select>
                                             <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                                                 <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"></path></svg>
-                                              </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="p-2">
@@ -169,8 +168,8 @@
                             </div>
                             <div class="header-icon relative">
                                 <i class="text-gray-500 hover:text-gray-700 p-3 cursor-pointer lni lni-cog setting-more"></i>
-                                <div class="shadow bg-white rounded-lg absolute right-0 setting-menu-top w-48 bg-white z-10 pb-3 pt-1 setting-menu md:right-auto md:left-0">
-                                    <div class="pointer px-3 pb-2 pt-1 flex justify-between items-center border-solid border-b border-gray-300 mb-2 cursor-pointer card-prop-more">
+                                <div class="shadow bg-white rounded-lg absolute right-0 setting-menu-top w-48 bg-white z-20 pb-3 setting-menu md:right-auto md:left-0">
+                                    <div class="pointer px-3 py-2 flex justify-between items-center border-solid border-b border-gray-300 mb-2 cursor-pointer card-prop-more hover:bg-gray-200">
                                         <span class="uppercase tracking-wide text-gray-700 text-xs font-bold">Card Properties</span>
                                         <i class="lni lni-chevron-right text-gray-700 text-sm"></i>
                                     </div>
@@ -209,8 +208,8 @@
                                         </label>
                                         <span class="leading-5 text-gray-700 ml-2">Rejected</span>
                                     </div>
-                                    <div class="shadow bg-white rounded-lg absolute top-0 right-0 left-0 w-48 bg-white z-20 pb-3 pt-1 card-prop-menu">
-                                        <div class="cursor-pointer px-3 pb-2 pt-1 flex items-center border-solid border-b border-gray-300 mb-2 card-prop-back">
+                                    <div class="shadow bg-white rounded-lg absolute top-0 right-0 left-0 w-48 bg-white z-30 pb-3 card-prop-menu">
+                                        <div class="cursor-pointer px-3 py-2 flex items-center border-solid border-b border-gray-300 mb-2 card-prop-back hover:bg-gray-200">
                                             <i class="lni lni-chevron-left mr-3 text-gray-700 text-sm"></i>
                                             <span class="uppercase tracking-wide text-gray-700 text-xs font-bold">Back</span>                                    
                                         </div>
@@ -255,6 +254,17 @@
                             <button class="text-sm bg-blue-500 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded ml-4 fixed right-1 bottom-1 z-10 md:static md:text-base modal-toggle">
                                 <i class="lni lni-plus"></i> Add Application
                             </button>
+                        </div>
+                        <div class="header-search-wrapper">
+                            <div class="inline-flex items-center bg-white w-full">
+                                <div class="relative flex-auto">
+                                    <input type="text" name="searck-word" class="text-sm block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="Type keyword...">
+                                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-500">
+                                        <i class="lni lni-search-alt"></i>
+                                    </div>
+                                </div>
+                                <i class="flex-initial lni lni-close p-3 cursor-pointer text-gray-500 close-search"></i>
+                            </div>                            
                         </div>
                     </div>
                 </div>                        

@@ -49,6 +49,13 @@ $tertiaryColor: #fad104;
   -ms-transform:scale($val);
   -o-transform:scale($val);
 }
+@mixin translatex($x){
+  transform:translateX($x);
+  -webkit-transform:translateX($x);
+  -moz-transform:translateX($x);
+  -ms-transform:translateX($x);
+  -o-transform:translateX($x);
+}
 @mixin masonry($col){
   column-count: $col;
   -moz-column-count: $col;

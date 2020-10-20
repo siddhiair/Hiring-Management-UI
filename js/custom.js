@@ -9,17 +9,19 @@ jQuery(document).ready(function($) {
           dragaccept:'.draggable-col'
         });
 
-    $(".display-tab-toggle").click(function(){
+    $(".display-tab button").click(function(e){
+        $(".display-tab button").not(this).removeClass("focused");
+        $(this).addClass("focused");
         $(".display-wrapper").hide();
-        if($(this).is(':checked'))
-            $("#board-display").fadeIn();
+        var display = $(this).data("target");
+        if($(this).data("display-tab") == 2)
+            $(".display-tab").addClass("active-tab2");
         else
-        $("#table-display").fadeIn();
+            $(".display-tab").removeClass("active-tab2");
+        $("#"+display).fadeIn();
     });
-
     $('.switchbtn input[type="checkbox"]').click(function(){
         var inputValue = $(this).val();
-        //$("." + inputValue).slideToggle();
         $("[data-app-class = "+inputValue+"]").slideToggle();
     });
     $(".header-icon").hover(function(){
@@ -27,6 +29,14 @@ jQuery(document).ready(function($) {
     },
     function(){
         $(this).children("i").removeClass("in");
+    });
+
+    $(".header-search").click(function(){
+        $(".header-search-wrapper").addClass("in");
+    });
+    $(".close-search").click(function(){
+        //$(".header-search-wrapper").hide();
+        $(".header-search-wrapper").removeClass("in");
     });
 
     $(".setting-more").click(function(){
@@ -41,14 +51,13 @@ jQuery(document).ready(function($) {
         $(this).parent(".card-prop-menu").hide();
     });
     $(document).mousedown(function (e){
-        if($(e.target).hasClass("setting-more") || $(e.target).hasClass("more-icon")){
+        var click_source = $(".setting-more,.more-icon");
+        if(click_source.is(e.target)){
             return false;
         }
-        var container = $(".setting-menu,.more-menu");
-        if (!container.is(e.target) && container.has(e.target).length === 0 || source.is(e.target) && source.has(e.target).length != 0){
-            //console.log(container.length);
-            container.hide();          
-           // e.stopPropagation();  
+        var toggle_div = $(".setting-menu,.more-menu");
+        if (!toggle_div.is(e.target) && toggle_div.has(e.target).length === 0){
+            toggle_div.hide();            
         }
     });
     $(".more-icon").click(function(){
