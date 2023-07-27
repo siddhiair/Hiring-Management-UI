@@ -2,6 +2,9 @@
 
 A UI prototype for Hiring Management in table and kanban format.
 
+### Demo
+You can check the demo [here](https://siddhiair.github.io/Hiring-Management-UI/)
+
 ### Technologies
   - HTML5
   - CSS3
